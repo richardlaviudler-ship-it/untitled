@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Neon Breach</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./src/vendor/three.module.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <canvas id="game-canvas" aria-label="Neon Breach game canvas"></canvas>
+
+    <div id="hud" class="hud" aria-live="polite">
+      <div class="hud-stack">
+        <div class="meter">
+          <span>Health</span>
+          <strong id="health-label">100</strong>
+          <div class="meter-track"><div id="health-bar" class="meter-fill health"></div></div>
+        </div>
+        <div class="stat-row">
+          <span>Ammo</span>
+          <strong id="ammo-label">18</strong>
+        </div>
+        <div class="stat-row">
+          <span>Cores</span>
+          <strong id="core-label">0/3</strong>
+        </div>
+        <div class="stat-row">
+          <span>Score</span>
+          <strong id="score-label">0</strong>
+        </div>
+      </div>
+      <canvas id="minimap" width="168" height="168" aria-label="Arena minimap"></canvas>
+    </div>
+
+    <div id="crosshair" class="crosshair" aria-hidden="true"></div>
+    <div id="damage-flash" class="damage-flash" aria-hidden="true"></div>
+    <div id="status-toast" class="status-toast" aria-live="polite">Find the three reactor cores.</div>
+
+    <section id="menu-screen" class="screen active">
+      <div class="screen-panel">
+        <p class="eyebrow">browser fps</p>
+        <h1>Neon Breach</h1>
+        <p class="screen-copy">Break into the reactor complex, recover every core, and escape before the sentries overrun the arena.</p>
+        <button id="start-button" type="button">Start Run</button>
+      </div>
+    </section>
+
+    <section id="pause-screen" class="screen">
+      <div class="screen-panel small">
+        <p class="eyebrow">paused</p>
+        <h2>Run Suspended</h2>
+        <button id="resume-button" type="button">Resume</button>
+        <button id="restart-button" type="button" class="secondary">Restart</button>
+      </div>
+    </section>
+
+    <section id="result-screen" class="screen">
+      <div class="screen-panel small">
+        <p id="result-eyebrow" class="eyebrow">complete</p>
+        <h2 id="result-title">Extraction Complete</h2>
+        <p id="result-copy" class="screen-copy">You brought the reactor cores home.</p>
+        <button id="play-again-button" type="button">Play Again</button>
+      </div>
+    </section>
+
+    <noscript>
+      <div class="screen active">
+        <div class="screen-panel">
+          <h1>JavaScript Required</h1>
+          <p class="screen-copy">Neon Breach needs JavaScript enabled to run in the browser.</p>
+        </div>
+      </div>
+    </noscript>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
